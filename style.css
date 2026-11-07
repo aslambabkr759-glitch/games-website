@@ -1,0 +1,162 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3edff;
+    color: #30204d;
+    text-align: center;
+}
+
+header {
+    background: linear-gradient(135deg, #55258c, #a35be0);
+    color: white;
+    padding: 30px 10px;
+}
+
+header h1 {
+    margin: 5px;
+    font-size: 32px;
+}
+
+nav {
+    background: #35145c;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+button {
+    background: #7b3fc1;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 5px;
+}
+
+button:hover {
+    background: #51258a;
+}
+
+.secondary {
+    background: #a28abf;
+}
+
+.auth-box {
+    background: white;
+    max-width: 400px;
+    margin: 35px auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px #c8b5df;
+}
+
+input, textarea {
+    display: block;
+    width: 90%;
+    padding: 13px;
+    margin: 12px auto;
+    border: 1px solid #c5a9e6;
+    border-radius: 8px;
+    font-size: 15px;
+    text-align: right;
+}
+
+textarea {
+    min-height: 110px;
+}
+
+main {
+    padding: 20px;
+}
+
+.page {
+    background: white;
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px #ddd0ee;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.game-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.game-card {
+    background: #f3eaff;
+    width: 220px;
+    padding: 18px;
+    border-radius: 12px;
+}
+
+.game-area {
+    margin: 25px auto;
+}
+
+.xo-board {
+    display: grid;
+    grid-template-columns: repeat(3, 85px);
+    justify-content: center;
+    gap: 7px;
+    margin: 20px;
+}
+
+.xo-board button {
+    width: 85px;
+    height: 85px;
+    font-size: 30px;
+    margin: 0;
+    background: #eadbff;
+    color: #54218b;
+}
+
+.memory-board {
+    display: grid;
+    grid-template-columns: repeat(4, 65px);
+    justify-content: center;
+    gap: 8px;
+    margin: 20px;
+}
+
+.memory-card {
+    height: 65px;
+    font-size: 25px;
+    padding: 5px;
+    background: #7b3fc1;
+}
+
+footer {
+    background: #35145c;
+    color: white;
+    padding: 18px;
+    margin-top: 30px;
+}
+
+@media (max-width: 500px) {
+    .page {
+        padding: 15px;
+    }
+
+    nav button {
+        padding: 10px;
+        font-size: 13px;
+    }
+}
+
+
+

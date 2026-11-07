@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Games - عالم الألعاب</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="Script.js" defer></script>
+</head>
+<body>
+
+<header>
+    <h1>🎮 Fun Games</h1>
+    <p>عالمك الممتع للألعاب والتسلية</p>
+</header>
+
+<!-- تسجيل الدخول والتسجيل -->
+<section id="authPage" class="auth-box">
+    <div id="loginForm">
+        <h2>تسجيل الدخول</h2>
+        <input id="loginUser" type="text" placeholder="اسم المستخدم">
+        <input id="loginPass" type="password" placeholder="كلمة المرور">
+        <button onclick="login()">دخول</button>
+        <p>ليس لديك حساب؟</p>
+        <button class="secondary" onclick="showRegister()">إنشاء حساب جديد</button>
+    </div>
+
+    <div id="registerForm" hidden>
+        <h2>إنشاء حساب</h2>
+        <input id="newUser" type="text" placeholder="اختاري اسم مستخدم">
+        <input id="newPass" type="password" placeholder="اختاري كلمة مرور">
+        <button onclick="register()">إنشاء الحساب</button>
+        <p>لديك حساب بالفعل؟</p>
+        <button class="secondary" onclick="showLogin()">العودة لتسجيل الدخول</button>
+    </div>
+
+    <p id="authMessage"></p>
+</section>
+
+<!-- الموقع -->
+<div id="website" hidden>
+
+<nav>
+    <button onclick="showPage('home')">الرئيسية</button>
+    <button onclick="showPage('games')">الألعاب</button>
+    <button onclick="showPage('contact')">اتصل بنا</button>
+    <button onclick="showPage('about')">عن الموقع</button>
+    <button onclick="logout()">تسجيل الخروج</button>
+</nav>
+
+<main>
+
+    <section id="home" class="page">
+        <h2>مرحباً بك في Fun Games 🌟</h2>
+        <p>استمتع بمجموعة من الألعاب الممتعة.</p>
+        <button onclick="showPage('games')">ابدأ اللعب</button>
+    </section>
+
+    <section id="games" class="page" hidden>
+        <h2>🎯 اختاري لعبتك</h2>
+
+        <div class="game-list">
+            <div class="game-card">
+                <h3>❌⭕ لعبة XO</h3>
+                <p>تحدي الذكاء والتركيز.</p>
+                <button onclick="openGame('xoGame')">العب الآن</button>
+            </div>
+
+            <div class="game-card">
+                <h3>🔢 تخمين الرقم</h3>
+                <p>حاولي معرفة الرقم الصحيح.</p>
+                <button onclick="openGame('guessGame')">العب الآن</button>
+            </div>
+
+            <div class="game-card">
+                <h3>🧠 لعبة الذاكرة</h3>
+                <p>اعثري على الصور المتشابهة.</p>
+                <button onclick="openGame('memoryGame')">العب الآن</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="gamePage" class="page" hidden>
+        <button class="secondary" onclick="showPage('games')">العودة للألعاب</button>
+
+        <div id="xoGame" class="game-area" hidden>
+            <h2>لعبة XO</h2>
+            <p id="xoStatus">دور اللاعب X</p>
+            <div class="xo-board">
+                <button onclick="xoMove(0)"></button>
+                <button onclick="xoMove(1)"></button>
+                <button onclick="xoMove(2)"></button>
+                <button onclick="xoMove(3)"></button>
+                <button onclick="xoMove(4)"></button>
+                <button onclick="xoMove(5)"></button>
+                <button onclick="xoMove(6)"></button>
+                <button onclick="xoMove(7)"></button>
+                <button onclick="xoMove(8)"></button>
+            </div>
+            <button onclick="resetXO()">إعادة اللعب</button>
+        </div>
+
+        <div id="guessGame" class="game-area" hidden>
+            <h2>🔢 خمني الرقم</h2>
+            <p>اختاري رقماً من 1 إلى 10</p>
+            <input id="guessInput" type="number" min="1" max="10">
+            <button onclick="checkGuess()">تحققي</button>
+            <p id="guessResult"></p>
+            <button class="secondary" onclick="resetGuess()">لعبة جديدة</button>
+        </div>
+
+        <div id="memoryGame" class="game-area" hidden>
+            <h2>🧠 لعبة الذاكرة</h2>
+            <p>اضغطي على البطاقات وابحثي عن الصور المتشابهة.</p>
+            <div id="memoryBoard" class="memory-board"></div>
+            <p id="memoryResult"></p>
+            <button onclick="startMemory()">إعادة اللعب</button>
+        </div>
+    </section>
+
+    <section id="contact" class="page" hidden>
+        <h2>📩 اتصل بنا</h2>
+        <input id="contactName" type="text" placeholder="اسمك">
+        <input id="contactSubject" type="text" placeholder="عنوان الرسالة">
+        <textarea id="contactMessage" placeholder="اكتبي رسالتك هنا"></textarea>
+        <button onclick="sendMessage()">إرسال</button>
+        <p id="contactResult"></p>
+    </section>
+
+    <section id="about" class="page" hidden>
+        <h2>عن الموقع</h2>
+        <p>
+            Fun Games هو موقع ترفيهي يضم مجموعة من الألعاب
+            البسيطة والممتعة، ويهدف إلى تقديم تجربة سهلة
+            ومسلية للمستخدمين.
+        </p>
+    </section>
+
+    <section id="logoutPage" class="page" hidden>
+        <h2>تم تسجيل الخروج</h2>
+        <p>شكراً لزيارتك موقع Fun Games.</p>
+        <button onclick="openLoginPage()">العودة لتسجيل الدخول</button>
+    </section>
+
+</main>
+</div>
+
+<footer>
+    <p>© 2026 Fun Games - جميع الحقوق محفوظة</p>
+</footer>
+
+</body>
+</html>
